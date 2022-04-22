@@ -1,6 +1,6 @@
 {
   "name": "nautoc-password",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "使用文本输入框模拟密码输入框",
   "author": "翠林 <clinfc@qq.com>",
   "license": "MIT",
