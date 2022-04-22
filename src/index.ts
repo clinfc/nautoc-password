@@ -1,5 +1,5 @@
 export type {
-  NAutocPassword,
+  NAutocPasswordReturn,
   NAutocPasswordForceUpdateFocus,
   NAutocPasswordModel,
   NAutocPasswordOption,
