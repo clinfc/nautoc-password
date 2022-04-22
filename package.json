@@ -1,0 +1,46 @@
+{
+  "name": "nautoc-password",
+  "version": "0.0.0",
+  "description": "使用文本输入框模拟密码输入框",
+  "author": "翠林 <clinfc@qq.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/clinfc/nautoc-password",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clinfc/nautoc-password"
+  },
+  "main": "dist/lib/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/types/index.d.ts",
+  "unpkg": "dist/lib/index.js",
+  "jsdelivr": "dist/lib/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js"
+    },
+    "./dist/es": "./dist/es/index.js",
+    "./dist/es/*/*.js": "./dist/es/*/*.js",
+    "./dist/lib": "./dist/lib/index.js",
+    "./dist/lib/*.js": "./dist/lib/*.js"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "password",
+    "new-password",
+    "autocomplete",
+    "input",
+    "HTMLInputElement"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "vite": "^2.9.5"
+  }
+}

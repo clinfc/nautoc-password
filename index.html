@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <style>
+      #toggle {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>密码：<input type="text" name="pwd" id="pwd" /><span id="toggle"></span></div>
+    <div>
+      sign：
+      <select id="sign" style="width: 100px">
+        <option value="*">*</option>
+        <option value="#">#</option>
+        <option value="x">x</option>
+      </select>
+    </div>
+    <div>预览：<span id="preview">123456</span></div>
+    <script type="module" src="/main.ts"></script>
+  </body>
+</html>
