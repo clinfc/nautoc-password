@@ -40,9 +40,6 @@ export function nautocPassword(option: NAutocPasswordOption): NAutocPasswordRetu
    */
   const history = new Chain<HistoryState>()
 
-  // @ts-ignore
-  window.his = history
-
   /**
    * 折叠输入时的记录
    */
@@ -88,7 +85,9 @@ export function nautocPassword(option: NAutocPasswordOption): NAutocPasswordRetu
 
     switch (e.inputType) {
       // 常规输入
-      case 'insertText': {
+      case 'insertText':
+      // 粘贴
+      case 'insertFromPaste': {
         state = replaceRangeText(model.get(), e.data!, range.start, range.end)
         break
       }
@@ -160,6 +159,7 @@ export function nautocPassword(option: NAutocPasswordOption): NAutocPasswordRetu
 
   const config = Object.defineProperties({} as NAutocPasswordConfig, {
     sign: {
+      enumerable: true,
       get() {
         return temp.sign
       },
@@ -172,6 +172,7 @@ export function nautocPassword(option: NAutocPasswordOption): NAutocPasswordRetu
       },
     },
     cleartext: {
+      enumerable: true,
       get() {
         return temp.cleartext
       },
@@ -184,6 +185,7 @@ export function nautocPassword(option: NAutocPasswordOption): NAutocPasswordRetu
       },
     },
     forceUpdate: {
+      enumerable: true,
       value() {
         if (!el) return
         const txt = model.get()

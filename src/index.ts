@@ -1,9 +1,9 @@
 export type {
-  NAutocPasswordReturn,
+  NAutocPasswordConfig,
   NAutocPasswordForceUpdateFocus,
   NAutocPasswordModel,
   NAutocPasswordOption,
-  NAutocPasswordConfig,
+  NAutocPasswordReturn,
 } from './core/types'
 import { nautocPassword } from './core/index'
 export default nautocPassword
