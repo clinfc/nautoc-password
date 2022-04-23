@@ -1,6 +1,8 @@
 # nautoc-password
 
-使用 `input[type=text]` 模拟 `input[type=password]`，不再为浏览器的自动填充行为而烦恼。`nautoc-password` 不依赖任何第三方库，纯原生，使用 `TypeScript` 构建。
+劫持 `input[type=text]` 的 `beforeinput` 事件，将其模拟成 `input[type=password]`，意在解决浏览器对密码框的自动填充行为。
+
+`nautoc-password` 不依赖任何第三方库，纯原生，使用 `TypeScript` 构建，打包后的 `umd` 格式文件在 `3.2kb` 左右。
 
 ## 开始开始
 
@@ -32,7 +34,7 @@ const option: NAutocPasswordOption = {
   },
   sign: 'x', // 密文显示时的替代字符。默认值：*。
   cleartext: true, // 设置为默认明文显示。false 则为密文显示。默认值：false。
-  forceUpdateFocus: 'none', // sign 与 cleartext 动态更新后，input 输入框的聚焦状态。默认值：end。
+  forceUpdateFocus: 'none', // sign 与 cleartext 动态更新后，或手动调用 forceUpdate 进行手动更新后，input 输入框的聚焦状态。默认值：end。
 }
 
 // 初始化。获取到具有双向绑定的配置对象和input节点绑定函数
@@ -65,7 +67,7 @@ config.forceUpdate()
 <script src="https://cdn.jsdelivr.net/npm/nautoc-password@latest"></script>
 <script>
   const formData = {
-    passowrd: '123465',
+    password: '123465',
   }
 
   const [config, bind] = nautocPassword({
@@ -86,7 +88,12 @@ config.forceUpdate()
 ## ts 类型
 
 ```ts
-declare function nautocPassword(option: NAutocPasswordOption): NAutocPassword
+declare function nautocPassword(option: NAutocPasswordOption): NAutocPasswordReturn
 ```
 
 完整的数据结构及注释请查看 [src/core/types.ts](./src/core/types.ts)。
+
+## 兼容
+
+1. 支持 [beforeinput](https://caniuse.com/?search=beforeinput) 事件
+2. 支持 [compositionend](https://caniuse.com/?search=compositionend) 事件
